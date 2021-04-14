@@ -1,0 +1,30 @@
+users
+   -------------------------
+   | id	|  name  | country |
+   -------------------------
+   | 1	|  user1 | 	  1	   |
+   | 2	|  user2 | 	  2	   |
+   | 3	|  user3 |    3	   |
+   | 4	|  user4 |    4	   |
+   | 5	|  user5 |    1	   |
+   | 6	|  user6 |    2	   |
+   -------------------------
+countries
+   ----------------
+   | id	|   name  |
+   ----------------
+   | 1	| Sweden  |
+   | 2	| England |
+   | 3	| Germany |
+   | 4	| Greece  |
+   ----------------
+Result:
+    -------------------------
+    | country | users_count |
+    -------------------------
+    | Sweden  |   	 2 	    |
+    | England |   	 2 	    |
+    | Germany |   	 1 	    |
+    | Greece  |   	 1 	    |
+    -------------------------
+SELECT c.name, COUNT(u.country) as users_count FROM countries c LEFT JOIN users u ON c.id = u.country GROUP BY c.id
